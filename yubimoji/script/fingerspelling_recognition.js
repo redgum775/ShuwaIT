@@ -19,11 +19,11 @@ const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
 // キャンパスの縦横比を端末と画面に応じて変更
 if(isSmartPhone && !isPortrait){
-  canvasElement.width = 1280;
-  canvasElement.height = 720;
-}else if(isSmartPhone && isPortrait){
   canvasElement.width = 720;
-  canvasElement.height = 1280;
+  canvasElement.height = 480;
+}else if(isSmartPhone && isPortrait){
+  canvasElement.width = 480;
+  canvasElement.height = 720;
 }
 
 const camera = new Camera(videoElement, {
@@ -31,8 +31,8 @@ const camera = new Camera(videoElement, {
     await hands.send({image: videoElement});
   },
   // カメラの縦横比を端末と画面に応じて変更
-  width: !isSmartPhone ? 1280 : (isPortrait ? 720 : 1280),
-  height: !isSmartPhone ? 720 : (isPortrait ? 1280 : 720)
+  width: !isSmartPhone ? 1280 : (isPortrait ? 480 : 720),
+  height: !isSmartPhone ? 720 : (isPortrait ? 720 : 480)
 });
 camera.start();
 
