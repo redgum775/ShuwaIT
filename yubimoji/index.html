@@ -40,6 +40,19 @@
     <!-- Header End -->
     
     <div class="full-screen">
+      <div id="camera-permission-request" hidden>
+        <button class="material-symbols-outlined" id="camera-permission-request-close-button">close</button><br>
+        Webカメラの映像で指文字を認識します。<br>
+        指文字認識を体験するには、カメラのアクセスを許可してください。
+      </div>
+      <div id="start-request" hidden>
+        カメラをオンにして、指文字認識を始めます<br>
+        よろしいでしょうか<br>
+        <div style="display: absolute; right: 0; margin: 0 auto; width: fit-content;">
+          <button  id="back-button">戻る</button>
+          <button id="start-button">OK<span class="material-symbols-outlined" style="font-size: 1em;">hand_gesture</span></button>
+        </div>
+      </div>
       <video class="input-video" autoplay muted playsinline hidden></video>
       <canvas class="output-canvas" width="1280" height="720"></canvas>
     </div>      

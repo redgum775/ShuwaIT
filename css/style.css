@@ -4,14 +4,22 @@ p{
 }
 
 h2{
-  padding: 5px;
-  color: #ffffff;
-  background-color: #902525;
+  margin:0;
+  padding: 0 5px;
+  background-color: gainsboro;
 }
 
 html, body{
   width: 100%;
   height: 100%;
+}
+body{
+  background-color: lightskyblue;
+}
+
+button {
+  border: none;
+  background: transparent;
 }
 
 /* Header */
@@ -29,16 +37,16 @@ header {
 }
 
 header a{
-  color: #ffffff;
+  color: white;
   text-decoration: none;
 }
 
 header a:active{
-  color: #ffffff
+  color: white
 }
 
 .header-logo{
-  color:#ffffff;
+  color:white;
   font-size: 36px;
 }
 
@@ -53,7 +61,7 @@ header a:active{
 }
 
 .header-list a{
-  color:#ffffff;
+  color:white;
   text-decoration: none;
 }
 
@@ -64,7 +72,7 @@ header a:active{
 }
 
 #setting-button{
-  color: #ffffff;
+  color: white;
 }
 
 #setting-button:hover{
@@ -74,8 +82,10 @@ header a:active{
 
 .wrapper{
   width: 1170px;
-  max-width: 100%;
+  max-width: 80%;
   margin: 5px auto;
+  padding: 5px;
+  background-color: white;
 }
 
 .full-screen{
@@ -90,6 +100,60 @@ header a:active{
   background-color:gainsboro;
 }
 
+#camera-permission-request {
+  position: absolute;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: gainsboro;
+  z-index: 30;
+  width: 480px;
+  min-width: 100px;
+  max-width: 75%;
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#camera-permission-request-close-button{
+  position: absolute;
+  right: 0;
+}
+
+#camera-permission-request-close-button:hover {
+  color: aqua;
+}
+
+#start-request {
+  position: absolute;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: gainsboro;
+  z-index: 30;
+  width: fit-content;
+  max-width: 75%;
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#cancel-button:hover{
+  border-radius: 10px;
+  color: aqua;
+  background-color: gray;
+}
+
+#start-button:hover{
+  border-radius: 10px;
+  color: aqua;
+  background-color: gray;
+}
+
 .output-canvas {
   position: absolute;
   background-color: #252525;
@@ -102,6 +166,7 @@ header a:active{
   height: 100%;
   max-width: 100%;
   max-height: 100%;
+  z-index: 10;
 }
 
 .result-text {
@@ -114,19 +179,20 @@ footer{
   width: 100%;
   background-color:#252525;
   bottom: 0; /*下に固定*/
+  z-index: 20;
 }
 
 footer p{
-  color: #ffffff;
+  color: white;
 }
 
 footer a{
-  color: #ffffff;
+  color: white;
   text-decoration: none;
 }
 
 footer a:active{
-  color: #ffffff
+  color: white
 }
 
 .footer-logo{
