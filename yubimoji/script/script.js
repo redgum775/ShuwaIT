@@ -20,21 +20,26 @@ close_button.addEventListener('click', () => {
   document.getElementById('camera-permission-request').hidden = true;
 }, false);
 
-// カメラ権限のチェック
-navigator.permissions.query({name: 'camera'}).then((result) => {
-  if(result.state == 'granted'){
-    document.getElementById('start-request').hidden = false
-  }else{
-    navigator.mediaDevices.getUserMedia({video: true, audio: false});
-    document.getElementById('camera-permission-request').hidden = false;
-  }
-  result.onchange = () => {
+// navigator.permissionsが使用可能かチェック
+const hasPermission = () => "permissions" in navigator ? true : false;
+if (hasPermission()){
+  // カメラ権限のチェック
+  navigator.permissions.query({name: 'camera'}).then((result) => {
     if(result.state == 'granted'){
-      document.getElementById('camera-permission-request').hidden = true;
-      window.location.reload();
+      document.getElementById('start-request').hidden = false
     }else{
+      navigator.mediaDevices.getUserMedia({video: true, audio: false});
       document.getElementById('camera-permission-request').hidden = false;
     }
-  }
-});
+    result.onchange = () => {
+      if(result.state == 'granted'){
+        document.getElementById('camera-permission-request').hidden = true;
+        window.location.reload();
+      }else{
+        document.getElementById('camera-permission-request').hidden = false;
+      }
+    }
+  });
+}
+
 
