@@ -31,12 +31,14 @@ if (hasPermission()){
       navigator.mediaDevices.getUserMedia({video: true, audio: false});
       document.getElementById('camera-permission-request').hidden = false;
     }
-    result.onchange = () => {
-      if(result.state == 'granted'){
-        document.getElementById('camera-permission-request').hidden = true;
-        window.location.reload();
-      }else{
-        document.getElementById('camera-permission-request').hidden = false;
+    if (typeof result.onchange === 'function'){
+      result.onchange = () => {
+        if(result.state == 'granted'){
+          document.getElementById('camera-permission-request').hidden = true;
+          window.location.reload();
+        }else{
+          document.getElementById('camera-permission-request').hidden = false;
+        }
       }
     }
   });
