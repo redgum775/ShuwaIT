@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@redgum775">
+    <meta name="twitter:title" content="ShuwaIT - 指文字認識">
+    <meta name="twitter:description" content="指文字認識を体験してみよう！">
+    <meta name="twitter:image" content="https://redgum775.github.io/ShuwaIT/assets/img/logo/ShuWaIT.svg">
+
+    <!-- スマホでフルスクリーン表示 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- スマホで拡大縮小無効 -->
+    <meta name="viewport" content="user-scalable=no" />
+
+    <title>ShuwaIT - 指文字認識</title>
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet">
+    <link rel="stylesheet" href="/ShuwaIT/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-logo">
+        <a href="/ShuwaIT/index.html"  style="pointer-events: none;">
+          <img src="/ShuwaIT/assets/img/logo/ShuwaIT.svg" width="48" height="48" alt="Logo">
+          ShuwaIT - 指文字認識
+        </a>
+      </div>
+      <div class="menu">
+        <span class="material-symbols-outlined" id="setting-button">settings</span>
+      </div>
+    </header>
+    <!-- Header End -->
+    
+    <div class="full-screen">
+      <video class="input-video" autoplay muted playsinline hidden></video>
+      <canvas class="output-canvas" width="1280" height="720"></canvas>
+    </div>      
+
+    <footer>
+      <p class="copyright">Copyright&copy; 2023 Redgum. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Import @tensorflow/tfjs-core -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <!-- Adds the CPU backend -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-cpu"></script>
+    <!-- Import @tensorflow/tfjs-tflite -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite/dist/tf-tflite.min.js"></script>
+
+    <!-- Import MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+    <!-- Run Fingerspelling Recognition -->
+    <script type="module" src="./script/model/fingerspelling_classification.js" charset="utf-8"></script>
+    <script type="module" src="./script/utils/utils.js" charset="utf-8"></script>
+    <script type="module" src="./script/fingerspelling_recognition.js" charset="utf-8"></script>
+
+    <!-- Disable scrolling -->
+    <script type="module" src="./script/script.js" charset="utf-8"></script>
+  </body>
+</html>
