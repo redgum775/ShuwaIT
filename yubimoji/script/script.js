@@ -22,23 +22,20 @@ close_button.addEventListener('click', () => {
 
 // navigator.permissionsが使用可能かチェック
 const hasPermission = () => "permissions" in navigator ? true : false;
+const hasOnchange = (result) => typeof result.onchange === 'object';
 if (hasPermission()){
   // カメラ権限のチェック
   navigator.permissions.query({name: 'camera'}).then((result) => {
     if(result.state == 'granted'){
       document.getElementById('start-request').hidden = false
     }else{
-      navigator.mediaDevices.getUserMedia({video: true, audio: false});
       document.getElementById('camera-permission-request').hidden = false;
+      if(!hasOnchange(result)){document.getElementsById('not-having-onchange').setAttribute('display', 'inline')}
+      navigator.mediaDevices.getUserMedia({video: true, audio: false});
     }
-    if (typeof result.onchange === 'function'){
+    if(hasOnchange(result)){
       result.onchange = () => {
-        if(result.state == 'granted'){
-          document.getElementById('camera-permission-request').hidden = true;
-          window.location.reload();
-        }else{
-          document.getElementById('camera-permission-request').hidden = false;
-        }
+        window.location.reload();
       }
     }
   });

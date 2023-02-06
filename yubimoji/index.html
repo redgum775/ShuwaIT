@@ -25,6 +25,11 @@
   </head>
 
   <body>
+    <div class="modal-back">
+      <div class="modal">
+      </div>
+    </div>
+
     <!-- Header -->
     <header>
       <div class="header-logo">
@@ -34,7 +39,7 @@
         </a>
       </div>
       <div class="menu">
-        <span class="material-symbols-outlined" id="setting-button">settings</span>
+        <button class="material-symbols-outlined" id="setting-button">settings</button>
       </div>
     </header>
     <!-- Header End -->
@@ -44,6 +49,7 @@
         <button class="material-symbols-outlined" id="camera-permission-request-close-button">close</button><br>
         Webカメラの映像で指文字を認識します。<br>
         指文字認識を体験するには、カメラのアクセスを許可してください。
+        <span id="not-having-onchange" style="display: none;">そして、このページをリロードしてください。</span>
       </div>
       <div id="start-request" hidden>
         カメラをオンにして、指文字認識を始めます<br>
