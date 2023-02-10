@@ -26,7 +26,7 @@ export class JaSpellingClassification{
   }
 
   async modelLoad(){
-    this.model = await tflite.loadTFLiteModel('./script/model/ja_fingerspelling.tflite');
+    this.model = await tflite.loadTFLiteModel('/ShuwaIT/script/model/ja_fingerspelling.tflite');
   }
 
   classification(){

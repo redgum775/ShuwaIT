@@ -2,8 +2,8 @@ const videoElement = document.getElementsByClassName('input-video')[0];
 const canvasElement = document.getElementsByClassName('output-canvas')[0];
 const canvasCtx = canvasElement.getContext('2d');
 
-import { JaSpellingClassification } from "./model/fingerspelling_classification.js";
-import { calcExplanatoryVariable, get_bounding_rect, get2byteLength } from "./utils/utils.js";
+import { JaSpellingClassification } from "/ShuwaIT/script/model/fingerspelling_classification.js";
+import { calcExplanatoryVariable, get_bounding_rect, get2byteLength } from "/ShuwaIT/script/utils/utils.js";
 
 const model = new JaSpellingClassification();
 
