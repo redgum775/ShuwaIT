@@ -2,17 +2,17 @@ const videoElement = document.getElementsByClassName('input-video')[0];
 const canvasElement = document.getElementsByClassName('output-canvas')[0];
 const canvasCtx = canvasElement.getContext('2d');
 
-import { JaSpellingClassification } from "./model/fingerspelling_classification.js";
-import { calcExplanatoryVariable, get_bounding_rect, get2byteLength } from "./utils/utils.js";
+import { JaSpellingClassification } from "/ShuwaIT/script/model/fingerspelling_classification.js";
+import { calcExplanatoryVariable, get_bounding_rect, get2byteLength } from "/ShuwaIT/script/utils/utils.js";
 
-const model = new JaSpellingClassification()
+const model = new JaSpellingClassification();
 
-const WHITE = '#ffffffff'
-const BLACK = '#000000ff'
-const GREEN = '#00ff00ff'
-const BASE_FONTSIZE = 16
+const WHITE = '#ffffffff';
+const BLACK = '#000000ff';
+const GREEN = '#00ff00ff';
+const BASE_FONTSIZE = 16;
 const FONTSIZE_MAGNIFICATION = 3;
-const BOUNDING_BOX_PADDING = 20
+const BOUNDING_BOX_PADDING = 20;
 
 const isSmartPhone = navigator.userAgent.match(/iPhone|Android.+Mobile/);
 const isPortrait = window.matchMedia("(orientation: portrait)").matches;
@@ -34,7 +34,15 @@ const camera = new Camera(videoElement, {
   width: !isSmartPhone ? 1280 : (isPortrait ? 480 : 720),
   height: !isSmartPhone ? 720 : (isPortrait ? 720 : 480)
 });
-camera.start();
+
+document.getElementById('back-button').addEventListener('click', () => {
+  window.location.href = '../'
+});
+
+document.getElementById('start-button').addEventListener('click', () => {
+  camera.start();
+  document.getElementById('start-request').remove();
+});
 
 const hands = new Hands({locateFile: (file) => {
   return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
