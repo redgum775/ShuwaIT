@@ -45,13 +45,13 @@
     <!-- Header End -->
     
     <div class="full-screen">
-      <div id="camera-permission-request" hidden>
+      <div id="camera-permission-request" class='dialog' hidden>
         <button class="material-symbols-outlined" id="camera-permission-request-close-button">close</button><br>
         Webカメラの映像で指文字を認識します。<br>
         指文字認識を体験するには、カメラのアクセスを許可してください。
         <span id="not-having-onchange" style="display: none;">そして、このページをリロードしてください。</span>
       </div>
-      <div id="start-request" hidden>
+      <div id="start-request" class='dialog'　hidden>
         カメラをオンにして、指文字認識を始めます<br>
         よろしいでしょうか<br>
         <div style="display: absolute; right: 0; margin: 0 auto; width: fit-content;">
@@ -64,7 +64,7 @@
     </div>      
 
     <footer>
-      <p class="copyright">Copyright&copy; 2023 Redgum. All Rights Reserved.</p>
+      <p class="copyright">Copyright&copy; 2023 Redgum All Rights Reserved.</p>
     </footer>
 
     <!-- Import @tensorflow/tfjs-core -->
