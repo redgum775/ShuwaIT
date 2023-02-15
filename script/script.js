@@ -28,7 +28,10 @@ if (hasPermission()){
   navigator.permissions.query({name: 'camera'}).then((result) => {
     if(result.state == 'granted'){
       document.getElementById('start-request').hidden = false
-    }else{
+    }else if(result.state == 'prompt'){
+      navigator.mediaDevices.getUserMedia({video: true, audio: false});
+      document.getElementById('start-request').hidden = false
+    }else if(result.state == 'denied'){
       document.getElementById('camera-permission-request').hidden = false;
       if(!hasOnchange(result)){document.getElementsById('not-having-onchange').setAttribute('display', 'inline')}
       navigator.mediaDevices.getUserMedia({video: true, audio: false});
@@ -40,5 +43,3 @@ if (hasPermission()){
     }
   });
 }
-
-
